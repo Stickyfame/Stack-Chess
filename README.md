@@ -109,4 +109,5 @@ Abandon.
 Abandon des noirs, victoire des blancs
 ```
 
-**Auteur** : Charles *Goupix* Anteunis [GitHub here](https://github.com/Stickyfame)
+##Auteur
+Charles *Goupix* Anteunis [GitHub here](https://github.com/Stickyfame)
