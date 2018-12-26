@@ -20,8 +20,8 @@ int is_valid_indice(char str[4], int n) {
 }
 
 /* requires 0 <= i < len(tab), tab[i] pile non vide
-	ensures retourne 1 si la case i contient des pieces blanches,
-			0 sinon */
+ensures retourne 1 si la case i contient des pieces blanches,
+		0 sinon */
 int is_white(stack *tab, int i) {
 	char 	*buf;
 
@@ -46,9 +46,25 @@ int get_indice(char str[4], int n) {
 	return (n*line + col);
 }
 
+/* requires *white et *black valides, tab de taille n*n
+assigns modifie white et black
+ensures white (resp black) contient le nombre de pieces blanches (resp noires) */
+void count_pcs(stack *tab, int n, int *white, int *black) {
+	int 	i;
+
+	for (i=0 ; i<n*n ; i=i+1) {
+		if (is_empty(tab[i]))
+			;
+		else if (is_white(tab, i))
+			*white = *white + 1;
+		else
+			*black = *black + 1;
+	}
+}
+
 /* requires tab de taille n*n, old et new indices valides
-	ensures retourne 1 si le deplacement de old a new ne pass pas au-dessus
-			d'une autre piece ,0 sinon */
+ensures retourne 1 si le deplacement de old a new ne pass pas au-dessus
+		d'une autre piece ,0 sinon */
 int is_survoling(stack *tab, int n, int old, int new) {
 	int		i_old[2];
 	int 	i_new[2];
@@ -117,8 +133,8 @@ int is_survoling(stack *tab, int n, int old, int new) {
 }
 
 /* requires 0 < nbr < len(tab[old])
-	ensures retourne 1 si toutes les nbr pieces peuvent se deplacer
-	 		de tab[old] a tab[new], 0 sinon */
+ensures retourne 1 si toutes les nbr pieces peuvent se deplacer
+ 		de tab[old] a tab[new], 0 sinon */
 int is_valid_deplacemt(stack *tab, int n, int nbr, int old, int new){
 	stack	tmp;
 	char 	c;
@@ -172,7 +188,6 @@ int is_valid_deplacemt(stack *tab, int n, int nbr, int old, int new){
 							i_new[1] > i_old[1]+1 || i_new[1] < i_old[1]-1)
 					return 0;
 				break;
-			/*case default: printf("Piece non valide\n"); break;*/
 		}
 		nbr = nbr - 1;
 	}

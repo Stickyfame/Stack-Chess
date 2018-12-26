@@ -143,22 +143,6 @@ void manger(int n, stack *tab, int old, int new) {
 	free(tmp.tab);
 }
 
-/* requires *white et *black valides, tab de taille n*n
-assigns modifie white et black
-ensures white (resp black) contient le nombre de pieces blanches (resp noires) */
-void count_pcs(stack *tab, int n, int *white, int *black) {
-	int 	i;
-
-	for (i=0 ; i<n*n ; i=i+1) {
-		if (is_empty(tab[i]))
-			;
-		else if (is_white(tab, i))
-			*white = *white + 1;
-		else
-			*black = *black + 1;
-	}
-}
-
 int main() {
 	int 	i, n;
 	int 	old, new;

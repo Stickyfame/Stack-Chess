@@ -18,6 +18,11 @@ ensures retourne l'indice du talbeau de jeu correspondant
 		à la case selectionnee par le joueur */
 int get_indice(char str[2], int n);
 
+/* requires *white et *black valides, tab de taille n*n
+assigns modifie white et black
+ensures white (resp black) contient le nombre de pieces blanches (resp noires) */
+void count_pcs(stack *tab, int n, int *white, int *black);
+
 /* requires tab de taille n*n, old et new indices valides
 	ensures retourne 1 si le deplacement de old a new ne pass pas au-dessus
 			d'une autre piece ,0 sinon */
