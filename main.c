@@ -155,7 +155,7 @@ int main() {
 	printf("Entrez la taille du plateau, min 4 max 26 : ");
 	scanf("%s", buf);
 	n = strtol(buf,NULL,10);
-	/* si l'utilisateur ne rentre pas un nombre valide*/
+	/* si l'utilisateur ne rentre pas un nombre valide */
 	while (n<4 || n>26) {
 		printf("Veuillez entrer une taille valide : ");
 		scanf("%s", buf);
@@ -256,11 +256,11 @@ a - abandonner\n");
 effectuer ce deplacement\n");
 					continue;
 				}
-				if ( is_survoling(tab, n, old, new) && (is_empty(tab[new])
+				if ( is_jumping(tab, n, old, new) && (is_empty(tab[new])
 					|| (play_color && is_white(tab, new))
 					|| (!play_color && !is_white(tab, new))) )
 					deplacer(nbr_deplacemt, tab, old, new);
-				else if (is_survoling(tab, n, old, new)
+				else if (is_jumping(tab, n, old, new)
 					&& nbr_deplacemt > len(tab[new]))
 					manger(nbr_deplacemt, tab, old, new);
 				else {

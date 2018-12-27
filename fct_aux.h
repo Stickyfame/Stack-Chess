@@ -26,7 +26,7 @@ void count_pcs(stack *tab, int n, int *white, int *black);
 /* requires tab de taille n*n, old et new indices valides
 	ensures retourne 1 si le deplacement de old a new ne pass pas au-dessus
 			d'une autre piece ,0 sinon */
-int is_survoling(stack *tab, int n, int old, int new);
+int is_jumping(stack *tab, int n, int old, int new);
 
 /* requires 0 < nbr < len(tab[old])
 	ensures retourne 1 si toutes les nbr pieces peuvent se deplacer
